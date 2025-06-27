@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>África - Países e Culturas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1><span class="typewriter-flash" data-text="África - Países e Culturas"></span></h1>
+            <div class="info"><span class="typewriter-flash" data-text="África"></span></div>
+            <div class="africa-concept">África é o berço da humanidade, um continente de imensa diversidade cultural, natural e histórica. Suas paisagens vão de desertos a florestas tropicais, suas tradições e povos inspiram o mundo com criatividade, resistência e alegria.</div>
+        </div>
+        <header class="custom-header">
+            <div class="header-content"></div>
+        </header>
+        <div class="profile-container" style="justify-content: center;">
+            <div class="profile-layout" style="justify-content: center;">
+                <div class="profile-info" style="display: flex; align-items: center; gap: 18px; justify-content: center;">
+                    <div class="profile-description" style="text-align: center;">Explorando a riqueza cultural, histórica e natural da África.</div>
+                </div>
+            </div>
+        </div>
+        <div class="modules-grid countries-grid" id="countries-grid"></div>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4 class="footer-title">Contato</h4>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>sensegeraldo2@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Portugal</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Redes Sociais</h4>
+          <div class="social-icons">
+            <a href="https://wa.me/351960075690" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" title="Conversar no WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+              <span class="social-tooltip">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+              <span class="social-tooltip">Instagram</span>
+            </a>
+            <a href="https://github.com/186153287" target="_blank" rel="noopener noreferrer" class="social-icon github">
+              <i class="fab fa-github"></i>
+              <span class="social-tooltip">GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/geraldo-sense" target="_blank" rel="noopener noreferrer" class="social-icon linkedin">
+              <i class="fab fa-linkedin-in"></i>
+              <span class="social-tooltip">LinkedIn</span>
+            </a>
+            <a href="https://www.youtube.com/@senseoliveira" target="_blank" rel="noopener noreferrer" class="social-icon youtube">
+              <i class="fab fa-youtube"></i>
+              <span class="social-tooltip">YouTube</span>
+            </a>
+            <a href="https://twitter.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon twitter">
+              <i class="fab fa-twitter"></i>
+              <span class="social-tooltip">Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="footer-copyright">
+            © 2025 Geraldo Sense. Todos os direitos reservados.
+          </p>
+          <div class="footer-legal">
+            <a href="#privacy" class="footer-legal-link">Política de Privacidade</a>
+            <a href="#terms" class="footer-legal-link">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+    <script>
+    function typewriterFlashEffect(element, text, speed = 55, flashColor = '#00fff7') {
+        let i = 0;
+        function type() {
+            if (i <= text.length) {
+                element.innerHTML =
+                    '<span style="text-shadow: 0 0 12px ' + flashColor + ', 0 0 24px ' + flashColor + ';">' +
+                    text.substring(0, i) +
+                    (i < text.length ? '<span class="type-cursor">|</span>' : '') +
+                    '</span>';
+                i++;
+                setTimeout(type, speed + Math.random() * 60);
+            } else {
+                element.innerHTML = text;
+            }
+        }
+        type();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.typewriter-flash').forEach(function(el, idx) {
+            setTimeout(function() {
+                typewriterFlashEffect(el, el.getAttribute('data-text'));
+            }, idx * 900);
+        });
+    });
+    </script>
+</body>
+</html>

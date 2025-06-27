@@ -1,0 +1,525 @@
+/* Reset e variáveis de tema */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1a49e2;
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --section-bg: #f8fafc;
+}
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --text-color: #e2e8f0;
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --section-bg: #2d2d2d;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Sobreposição para facilitar leitura */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.35); /* Mais transparente para o fundo aparecer melhor */
+    z-index: 0;
+    pointer-events: none;
+    transition: background 0.3s;
+}
+
+/* Garante que o conteúdo fique acima da sobreposição */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Títulos e descrições das seções */
+.traditions-section, .africa-countries-section {
+    padding: 4rem 5% 2rem 5%;
+    background: var(--section-bg);
+    margin-top: 10.2cm;
+}
+.traditions-section h1, .africa-countries-section h1 {
+    text-align: center;
+    font-size: 2.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.7rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+.section-description {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.85;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+.section-divider {
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    margin: 3.5rem auto 3.5rem auto;
+    width: 60%;
+    opacity: 0.15;
+}
+
+/* Cards de tradições */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+}
+.card {
+    background: transparent;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 1.2rem 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+    min-height: 260px;
+    cursor: default;
+    animation: fadeInSection 0.8s;
+}
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+.card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    background: #fff;
+}
+.card h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0.7rem 0;
+    color: var(--primary-dark);
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+.card p {
+    font-size: 1rem;
+    color: #444;
+    padding: 0 10px 0 10px;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+
+/* Cards de países africanos */
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.country-card {
+    background: transparent;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 1.2rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+    min-height: 220px;
+    animation: fadeInSection 0.8s;
+}
+.country-card:hover, .country-card:focus {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+.country-flag {
+    width: 64px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    background: #fff;
+}
+.country-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+.country-wealth {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.10);
+}
+
+/* Modal de detalhes do país */
+.country-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 420px;
+    width: 95vw;
+    position: relative;
+    color: var(--text-color);
+    animation: fadeInSection 0.5s;
+}
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 2rem;
+    color: var(--primary-dark);
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+/* Animação fade-in para seções e cards */
+@keyframes fadeInSection {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+section, .card, .country-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInSection 1s forwards;
+}
+section.visible, .card, .country-card {
+    opacity: 1;
+    transform: none;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+    .countries-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+}
+@media (max-width: 600px) {
+    .cards-container, .countries-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .section-divider {
+        width: 90%;
+    }
+    .modal-content {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+}
+
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(37, 99, 235, 0.85);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    z-index: 100;
+    height: 10cm;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+.main-navbar nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-title {
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.country-detail-page {
+    padding: 4rem 5% 2rem 5%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+}
+.country-detail-section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px var(--shadow-color);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+}
+.country-detail-flag {
+    width: 90px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    background: #fff;
+}
+.country-detail-img {
+    width: 100%;
+    max-width: 420px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px var(--shadow-color);
+}
+.country-detail-content h2 {
+    color: var(--primary-dark);
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+.country-detail-content p {
+    color: var(--text-color);
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+@media (max-width: 700px) {
+    .country-detail-section {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        margin-top: 70px;
+    }
+    .country-detail-img {
+        height: 120px;
+    }
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+.header {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.africa-concept {
+    margin: 1.2rem auto 0 auto;
+    max-width: 600px;
+    font-size: 1.15rem;
+    color: var(--primary-dark);
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    padding: 1.1rem 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.profile-container, .profile-layout, .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.modules-grid.countries-grid {
+    justify-content: center;
+}
+
+.footer {
+    width: 100%;
+    background: rgba(37, 99, 235, 0.92);
+    color: #fff;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+}
+.footer-section {
+    min-width: 220px;
+    text-align: left;
+}
+.footer-section:last-child {
+    text-align: right;
+}
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1rem;
+}
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+}
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    color: #2563eb;
+    font-size: 1.4rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    position: relative;
+    text-decoration: none;
+}
+.social-icon:hover {
+    background: #2563eb;
+    color: #fff;
+    transform: scale(1.08) translateY(-4px);
+}
+.social-tooltip {
+    display: none;
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #2563eb;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 10;
+}
+.social-icon:hover .social-tooltip {
+    display: block;
+}
+.footer-bottom {
+    width: 100%;
+    background: rgba(0,0,0,0.10);
+    padding: 1.1rem 0 0.7rem 0;
+    text-align: center;
+    margin-top: 1.2rem;
+}
+.footer-bottom-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-copyright {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+.footer-legal {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer-legal-link {
+    color: #fff;
+    opacity: 0.85;
+    text-decoration: underline;
+    font-size: 0.98rem;
+    transition: color 0.2s;
+}
+.footer-legal-link:hover {
+    color: #00fff7;
+    opacity: 1;
+}
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 1rem;
+    }
+    .footer-section, .footer-section:last-child {
+        text-align: center;
+    }
+}
