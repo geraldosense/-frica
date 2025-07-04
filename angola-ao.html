@@ -5,35 +5,297 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angola - África</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <header class="main-navbar">
-        <nav>
-            <div class="navbar-title">África</div>
-        </nav>
+    <div class="main-container">
+        <div class="header">
+            <h1><span class="typewriter-flash" data-text="Angola - África"></span></h1>
+            <div class="info"><span class="typewriter-flash" data-text="Angola"></span></div>
+            <div class="africa-concept">Angola é um país rico em petróleo e diamantes, com uma cultura vibrante marcada pela música kizomba e semba, danças tradicionais e uma culinária rica em peixes e mandioca.</div>
+        </div>
+        <header class="custom-header">
+            <div class="header-content"></div>
     </header>
-    <main class="country-detail-page">
-        <section class="country-detail-section">
-            <h1>Angola</h1>
-            <img src="https://flagcdn.com/w320/ao.png" alt="Bandeira de Angola" class="country-detail-flag" />
-            <div class="country-detail-content">
-                <h2>Capital</h2>
-                <p>Luanda</p>
-                <h2>Independência</h2>
-                <p>11 de novembro de 1975 (de Portugal)</p>
-                <h2>Cultura</h2>
-                <p>A cultura angolana é marcada pela música (kizomba, semba), danças tradicionais e uma culinária rica em peixes e mandioca.</p>
-                <h2>Paisagens e Cidades</h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Quedas_de_Kalandula_2.jpg" alt="Quedas de Kalandula" class="country-detail-img" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Luanda_Bay.jpg" alt="Luanda" class="country-detail-img" />
-                <p>Destaques: Quedas de Kalandula, Parque Nacional da Kissama, praias de Benguela, Luanda.</p>
-                <h2>Curiosidades</h2>
-                <p>Angola é um dos maiores produtores de petróleo da África.</p>
-                <h2>Riquezas</h2>
-                <p>Petróleo, diamantes, pesca e agricultura.</p>
+        <div class="profile-container" style="justify-content: center;">
+            <div class="profile-layout" style="justify-content: center;">
+                <div class="profile-info" style="display: flex; align-items: center; gap: 18px; justify-content: center;">
+                    <div class="profile-description" style="text-align: center;">Explorando a riqueza cultural, histórica e natural de Angola.</div>
+                </div>
             </div>
-            <a href="index.html" class="project-button" style="margin-top:2rem;display:inline-block;">Voltar para África</a>
-        </section>
-    </main>
+        </div>
+        
+        <!-- Cards com informações de Angola no estilo da página principal -->
+        <div class="modules-grid countries-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 5%;">
+            <!-- Card da Bandeira -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('bandeira')">
+                <img src="https://flagcdn.com/w320/ao.png" alt="Bandeira de Angola" class="country-flag" style="width: 120px; height: 80px;">
+                <div class="country-name">Bandeira de Angola</div>
+                <div class="country-wealth">Símbolo da independência conquistada em 1975</div>
+            </div>
+            
+            <!-- Card da Capital -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('capital')">
+                <i class="fas fa-city" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Capital</div>
+                <div class="country-wealth">Luanda</div>
+            </div>
+            
+            <!-- Card da Independência -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('independencia')">
+                <i class="fas fa-flag" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Independência</div>
+                <div class="country-wealth">11 de novembro de 1975 (de Portugal)</div>
+            </div>
+            
+            <!-- Card da Cultura -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('cultura')">
+                <i class="fas fa-music" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Cultura</div>
+                <div class="country-wealth">Música (kizomba, semba), danças tradicionais e culinária rica em peixes e mandioca</div>
+            </div>
+            
+            <!-- Card das Paisagens -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('paisagens')">
+                <i class="fas fa-mountain" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Paisagens</div>
+                <div class="country-wealth">Quedas de Kalandula, Parque Nacional da Kissama, praias de Benguela</div>
+            </div>
+            
+            <!-- Card das Curiosidades -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('curiosidades')">
+                <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Curiosidades</div>
+                <div class="country-wealth">Um dos maiores produtores de petróleo da África</div>
+            </div>
+            
+            <!-- Card das Riquezas -->
+            <div class="country-card" style="cursor: pointer;" onclick="openAngolaModal('riquezas')">
+                <i class="fas fa-gem" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                <div class="country-name">Riquezas</div>
+                <div class="country-wealth">Petróleo, diamantes, pesca e agricultura</div>
+            </div>
+        </div>
+        
+        <!-- Modal para detalhes dos cards -->
+        <div id="angola-modal" class="country-modal" style="display:none;">
+            <div class="modal-content" style="max-width: 600px;">
+                <span class="close-modal" id="close-angola-modal" tabindex="0">&times;</span>
+                <div id="angola-modal-body"></div>
+            </div>
+        </div>
+        
+        <!-- Botão para voltar -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="project-button" style="margin-top:2rem;display:inline-block; padding: 12px 24px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; transition: background 0.3s;">Voltar para África</a>
+        </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4 class="footer-title">Contato</h4>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>sensegeraldo2@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Portugal</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Redes Sociais</h4>
+          <div class="social-icons">
+            <a href="https://wa.me/351960075690" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" title="Conversar no WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+              <span class="social-tooltip">Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+              <span class="social-tooltip">Instagram</span>
+            </a>
+            <a href="https://github.com/186153287" target="_blank" rel="noopener noreferrer" class="social-icon github">
+              <i class="fab fa-github"></i>
+              <span class="social-tooltip">GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/geraldo-sense" target="_blank" rel="noopener noreferrer" class="social-icon linkedin">
+              <i class="fab fa-linkedin-in"></i>
+              <span class="social-tooltip">LinkedIn</span>
+            </a>
+            <a href="https://www.youtube.com/@senseoliveira" target="_blank" rel="noopener noreferrer" class="social-icon youtube">
+              <i class="fab fa-youtube"></i>
+              <span class="social-tooltip">YouTube</span>
+            </a>
+            <a href="https://twitter.com/geraldosense" target="_blank" rel="noopener noreferrer" class="social-icon twitter">
+              <i class="fab fa-twitter"></i>
+              <span class="social-tooltip">Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="footer-copyright">
+            © 2025 Geraldo Sense. Todos os direitos reservados.
+          </p>
+          <div class="footer-legal">
+            <a href="#privacy" class="footer-legal-link">Política de Privacidade</a>
+            <a href="#terms" class="footer-legal-link">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+    function typewriterFlashEffect(element, text, speed = 55, flashColor = '#00fff7') {
+        let i = 0;
+        function type() {
+            if (i <= text.length) {
+                element.innerHTML =
+                    '<span style="text-shadow: 0 0 12px ' + flashColor + ', 0 0 24px ' + flashColor + ';">' +
+                    text.substring(0, i) +
+                    (i < text.length ? '<span class="type-cursor">|</span>' : '') +
+                    '</span>';
+                i++;
+                setTimeout(type, speed + Math.random() * 60);
+            } else {
+                element.innerHTML = text;
+            }
+        }
+        type();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.typewriter-flash').forEach(function(el, idx) {
+            setTimeout(function() {
+                typewriterFlashEffect(el, el.getAttribute('data-text'));
+            }, idx * 900);
+        });
+    });
+
+    // Modal Angola
+    const angolaModal = document.getElementById('angola-modal');
+    const angolaModalBody = document.getElementById('angola-modal-body');
+    const closeAngolaModal = document.getElementById('close-angola-modal');
+
+    function openAngolaModal(topic) {
+        let content = '';
+        switch(topic) {
+            case 'bandeira':
+                content = `
+                    <h2>Bandeira de Angola</h2>
+                    <img src='https://flagcdn.com/w320/ao.png' alt='Bandeira de Angola' style='width:180px;display:block;margin:1rem auto;'>
+                    <p>A bandeira de Angola simboliza a luta do povo angolano pela independência. O vermelho representa o sangue derramado, o preto o continente africano, e o emblema central (engrenagem e machete) representa os trabalhadores e a luta armada.</p>
+                `;
+                break;
+            case 'capital':
+                content = `
+                    <h2>Capital: Luanda</h2>
+                    <img src='https://backoffice.hipersuper.pt/app/uploads/2011/07/luanda.jpg' alt='Luanda' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                    <p>Luanda é a maior cidade e capital de Angola, localizada na costa atlântica. É o principal centro econômico, político e cultural do país.</p>
+                    <h3>Presidente da Independência</h3>
+                    <img src='https://www.shutterstock.com/image-photo/drantonio-agostinho-neto-portrait-angola-600nw-2403634501.jpg' alt='Agostinho Neto' style='width:120px;display:block;margin:0.5rem auto;border-radius:50%;box-shadow:0 2px 8px #0002;'>
+                    <p><b>Agostinho Neto</b> foi o primeiro presidente de Angola e liderou o país à independência em 1975.</p>
+                `;
+                break;
+            case 'independencia':
+                content = `
+                    <h2>Independência</h2>
+                    <img src='https://consuladogeralangola-uk.org/wp-content/uploads/2024/11/11-de-novembro.png' alt='Independência de Angola' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                    <p>Angola conquistou sua independência de Portugal em 11 de novembro de 1975, após anos de luta armada liderada por movimentos como o MPLA, UNITA e FNLA.</p>
+                `;
+                break;
+            case 'cultura':
+                content = `
+                    <h2>Cultura Angolana</h2>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/7/7e/Bonga_2011.jpg' alt='Bonga' style='width:120px;display:block;margin:0.5rem auto;border-radius:50%;box-shadow:0 2px 8px #0002;'>
+                    <p>A cultura angolana é marcada pela música, dança e culinária. Destaques:</p>
+                    <ul>
+                        <li><b>Música:</b> Kizomba, Semba, Kuduro</li>
+                        <li><b>Cantores:</b> Bonga, Paulo Flores, Yola Semedo</li>
+                        <li><b>Comidas:</b> Moamba de galinha, funge, calulu</li>
+                    </ul>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/2/2a/Kizomba_dancers.jpg' alt='Kizomba' style='width:100%;max-width:320px;display:block;margin:1rem auto;border-radius:10px;'>
+                `;
+                break;
+            case 'paisagens':
+                content = `
+                    <h2>Paisagens de Angola</h2>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Quedas de Kalandula</h3>
+                        <img src='https://www.giranoticias.com/_midias/jpg/2024/05/04/quedas_de_kalandula-359092.jpg' alt='Quedas de Kalandula' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                        <p style="text-align: center; font-style: italic; color: #666;">📍 Província de Malanje, a 360 km de Luanda</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Luanda - Capital</h3>
+                        <img src='https://www.hipersuper.pt/2011/07/12/luanda-continua-como-cidade-o-custo-de-vida-mais-elevado-do-mundo' alt='Luanda' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                        <p style="text-align: center; font-style: italic; color: #666;">📍 Costa atlântica, província de Luanda</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Floresta do Mayombe</h3>
+                        <img src='https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=371323390385786' alt='Floresta do Mayombe' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                        <p style="text-align: center; font-style: italic; color: #666;">📍 Província de Cabinda, norte de Angola</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Parque Nacional da Kissama</h3>
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/8/8a/Kissama_National_Park.jpg' alt='Parque Nacional da Kissama' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                        <p style="text-align: center; font-style: italic; color: #666;">📍 Província de Bengo, 75 km de Luanda</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3>Praias de Benguela</h3>
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Benguela_Beach.jpg' alt='Praias de Benguela' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                        <p style="text-align: center; font-style: italic; color: #666;">📍 Província de Benguela, costa atlântica</p>
+                    </div>
+                `;
+                break;
+            case 'curiosidades':
+                content = `
+                    <h2>Curiosidades</h2>
+                    <ul>
+                        <li>Angola é um dos maiores produtores de petróleo da África.</li>
+                        <li>O país possui uma das maiores reservas de diamantes do continente.</li>
+                        <li>A Floresta do Mayombe é uma das mais densas da África Central.</li>
+                    </ul>
+                `;
+                break;
+            case 'riquezas':
+                content = `
+                    <h2>Riquezas de Angola</h2>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/2/2c/Angola_oil_platform.jpg' alt='Petróleo em Angola' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                  <img src='https://opais.co.mz/wp-content/uploads/2021/11/DIAMANTES.jpg' alt='Diamante Angolano' style='width:100%;max-width:220px;display:block;margin:1rem auto;border-radius:10px;'>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/6/6e/Mayombe_Floresta.jpg' alt='Floresta do Mayombe' style='width:100%;max-width:400px;display:block;margin:1rem auto;border-radius:10px;'>
+                    <p>Petróleo, diamantes, pesca, agricultura e a Floresta do Mayombe são grandes riquezas naturais de Angola.</p>
+                `;
+                break;
+            default:
+                content = '<p>Conteúdo não encontrado.</p>';
+        }
+        angolaModalBody.innerHTML = content;
+        angolaModal.style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('#angola-modal .modal-content').focus && document.querySelector('#angola-modal .modal-content').focus();
+        }, 100);
+    }
+    if(closeAngolaModal) {
+        closeAngolaModal.onclick = () => angolaModal.style.display = 'none';
+        closeAngolaModal.onkeydown = (e) => { if(e.key === 'Enter' || e.key === ' ') angolaModal.style.display = 'none'; };
+    }
+    window.onclick = (event) => {
+        if(event.target === angolaModal) angolaModal.style.display = 'none';
+    };
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') angolaModal.style.display = 'none';
+    });
+    </script>
 </body>
 </html> 
